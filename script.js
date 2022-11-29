@@ -52,7 +52,7 @@ function judge(isHigh) {
 
 function showResult(result){
     // 結果を表示
-    myCard.innerHTML =  "<img src=card/0_" + cards[myCardNumber] + ".png width=60px height=90px>"; // 自分のカードを表示
+    myCard.innerHTML =  "<img src=card/1_" + cards[myCardNumber] + ".png width=60px height=90px>"; // 自分のカードを表示
     if(result === true) {
         resultField.innerText = "あなたの勝ち！";
     }else{
