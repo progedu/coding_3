@@ -3,14 +3,12 @@ const cards = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 const left = document.getElementById("left");
 const right =  document.getElementById("right");
 const resultHtml =  document.getElementById("resultHtml");
-const resultListHtml =  document.getElementById("resultListHtml");
 const judgeHtml = document.getElementById("judgeHtml");
-const restartHtml = document.getElementById("restartHtml");
+
 
 let leftNum = 0;
 let rightNum = 0;
 
-let resultList = [];
 
 function start(){
     leftNum =  Math.floor(Math.random() * 13); //左のカード番号を決める
@@ -19,7 +17,6 @@ function start(){
     left.src = "card/0_" + cards[leftNum] + ".png"; // カードを描画
 
     judgeHtml.style.visibility = "visible"; //投票ボタンを表示
-    restartHtml.style.visibility = "hidden"; //再戦ボタンを非表示
 
 }
 
@@ -41,9 +38,6 @@ function judge(isHigh) {
     }
 
     showResult(result);
-
-    resultList.push(result);
-    showResultList(resultList);
 }
 
 function showResult(result){
@@ -56,27 +50,7 @@ function showResult(result){
     }
     
     judgeHtml.style.visibility = "hidden"; //投票ボタンを非表示
-    restartHtml.style.visibility = "visible"; //再戦ボタンを表示
-}
 
-function showResultList(resultList) {
-    let win = 0;
-    let lose = 0;
-    for(let i = 0; i < resultList.length; i++) {
-        if(resultList[i] === true){
-            win++;
-        }else{
-            lose++;
-        }
-    }
-    resultListHtml.innerText = "結果："+ win + "勝" + lose + "敗";
-}
-
-function restart(){
-    resultHtml.innerText = ""; //結果表示をクリア
-    right.src = "card/back.png" //右のカードは隠蔽
-    
-    start();
 }
 
 window.onload = start();
