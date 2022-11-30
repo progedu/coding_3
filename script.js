@@ -4,7 +4,7 @@ const round = 5
 const fieldCard = document.getElementById("field-card");
 const myCard =  document.getElementById("my-card");
 const resultField =  document.getElementById("result-field");
-const roundResultField =  document.getElementById("round-result-field");
+const finalResultField =  document.getElementById("final-result-field");
 const judgeButton = document.getElementById("judge-button");
 const restartButton = document.getElementById("restart-button");
 
@@ -47,7 +47,6 @@ function judge(isHigh) {
     nowRound++;
 
     showResult(result);
-    showRoundResult(roundResult);
 }
 
 function showResult(result){
@@ -62,20 +61,23 @@ function showResult(result){
     judgeButton.style.visibility = "hidden"; //投票ボタンを非表示
     if(nowRound < round) {
         restartButton.style.visibility = "visible"; //再戦ボタンを表示
+    }else{
+        finalResult(roundResult);
     }
 }
 
-function showRoundResult(roundResult){
-    resultText = "";
+function finalResult(roundResult) {
+    let winCount = 0;
+    let loseCount = 0;
     for(let i = 0; i < round; i++) {
         if(roundResult[i] === true){
-            resultText = resultText + "o";
+            winCount++;
         }else if(roundResult[i] === false){
-            resultText = resultText + "x";
+            loseCount++;
         }
     }
-    roundResultField.innerText = resultText;
-    
+    finalResultField.innerText = "結果："+ winCount + "勝" + loseCount + "敗";
+
 }
 
 function restart(){
