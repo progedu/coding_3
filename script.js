@@ -1,25 +1,25 @@
 const cards = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 const round = 5
 
-const fieldCard = document.getElementById("field-card");
-const myCard =  document.getElementById("my-card");
-const resultField =  document.getElementById("result-field");
-const finalResultField =  document.getElementById("final-result-field");
-const judgeButton = document.getElementById("judge-button");
-const restartButton = document.getElementById("restart-button");
+const left = document.getElementById("left");
+const right =  document.getElementById("right");
+const resultDisplay =  document.getElementById("resultDisplay");
+const finalDisplay =  document.getElementById("finalDisplay");
+const judgeButton = document.getElementById("judgeButton");
+const restartButton = document.getElementById("restartButton");
 
-let fieldCardNumber = 0;
-let myCardNumber = 0;
+let leftNum = 0;
+let rightNum = 0;
 
 let roundResult = [];
 let nowRound = 0;
 
 function start(){
-    fieldCardNumber =  Math.floor(Math.random() * 13); //場のカード番号を決める
-    myCardNumber =  Math.floor(Math.random() * 13); // 自分のカード番号を決める
+    leftNum =  Math.floor(Math.random() * 13); //左のカード番号を決める
+    rightNum =  Math.floor(Math.random() * 13); // 右のカード番号を決める
 
-    fieldCard.innerHTML = "<img src=card/0_" + cards[fieldCardNumber] + ".png width=60px height=90px>"; // カードを描画
-    myCard.innerHTML = "<img src=card/back.png width=60px height=90px>" //自分のカードを隠蔽
+    left.src = "card/0_" + cards[leftNum] + ".png"; // カードを描画
+    right.src = "card/back.png" //右のカードは隠蔽
 
     judgeButton.style.visibility = "visible"; //投票ボタンを表示
     restartButton.style.visibility = "hidden"; //再戦ボタンを非表示
@@ -29,13 +29,13 @@ function start(){
 function judge(isHigh) {
     let result = "";
 
-    if (cards[fieldCardNumber] < cards[myCardNumber]) { // 自分のカードの方が大きい
+    if (cards[leftNum] < cards[rightNum]) { // 右のカードの方が大きい
         if (isHigh === true){ // isHighがtrueなら勝ち
             result = true;
         }else{ // isHighがfalseなら負け
             result = false;
         }
-    }else{ // 自分のカードの方が小さい
+    }else{ // 右のカードの方が小さい
         if (isHigh === true){ // isHighがtrueなら負け
             result = false;
         }else{ // isHighがfalseなら勝ち
@@ -51,11 +51,11 @@ function judge(isHigh) {
 
 function showResult(result){
     // 結果を表示
-    myCard.innerHTML =  "<img src=card/1_" + cards[myCardNumber] + ".png width=60px height=90px>"; // 自分のカードを表示
+    right.src = "card/1_" + cards[rightNum] + ".png"; // 右のカードを表示
     if(result === true) {
-        resultField.innerText = "あなたの勝ち！";
+        resultDisplay.innerText = "あなたの勝ち！";
     }else{
-        resultField.innerText = "あなたの負け...";
+        resultDisplay.innerText = "あなたの負け...";
     }
     
     judgeButton.style.visibility = "hidden"; //投票ボタンを非表示
@@ -67,16 +67,16 @@ function showResult(result){
 }
 
 function finalResult(roundResult) {
-    let winCount = 0;
-    let loseCount = 0;
+    let win = 0;
+    let lose = 0;
     for(let i = 0; i < round; i++) {
         if(roundResult[i] === true){
-            winCount++;
+            win++;
         }else if(roundResult[i] === false){
-            loseCount++;
+            lose++;
         }
     }
-    finalResultField.innerText = "結果："+ winCount + "勝" + loseCount + "敗";
+    finalDisplay.innerText = "結果："+ win + "勝" + lose + "敗";
 
 }
 

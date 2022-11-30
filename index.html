@@ -9,19 +9,19 @@
 </head>
 <body>
     <div class="container">
-        <div id="card-field">
-            <span id="field-card"></span>
-            <span id="my-card"></span>
+        <div id="play">
+           <img src=card/back.png id="left" />
+           <img src=card/back.png id="right" />
         </div>
-        <div id="judge-button">
-        <input type="button" value="自分のカードの方が大きい" onclick="judge(true);"/>
-        <input type="button" value="自分のカードの方が小さい" onclick="judge(false);"/>
+        <div id="judgeButton">
+            <input type="button" value="右のカードの方が大きい" onclick="judge(true);"/>
+            <input type="button" value="右のカードの方が小さい" onclick="judge(false);"/>
         </div>
-        <div id="result-field"></div>
-        <div id="restart-button">
+        <div id="restartButton">
             <input type="button" value="次へ進む" onclick="restart();"/>
         </div>
-        <div id="final-result-field"></div>
+        <div id="resultDisplay"></div>
+        <div id="finalDisplay"></div>
     </div>
     <script src="script.js"></script>
 </body>
