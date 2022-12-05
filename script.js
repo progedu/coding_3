@@ -2,10 +2,10 @@ const cards = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 
 const left = document.getElementById("left");
 const right =  document.getElementById("right");
-const resultHtml =  document.getElementById("resultHtml");
-const resultListHtml =  document.getElementById("resultListHtml");
-const judgeHtml = document.getElementById("judgeHtml");
-const restartHtml = document.getElementById("restartHtml");
+const resultHtml =  document.getElementById("result-html");
+const resultListHtml =  document.getElementById("result-list-html");
+const judgeHtml = document.getElementById("judge-html");
+const restartHtml = document.getElementById("restart-html");
 
 let leftNum = 0;
 let rightNum = 0;

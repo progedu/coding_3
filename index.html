@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HIGH & LOW</title>
-   
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
     <div class="container">
         <div>
-           <img src=card/back.png id="left" />
-           <img src=card/back.png id="right" />
+           <img class="card" src=card/back.png id="left" />
+           <img class="card" src=card/back.png id="right" />
         </div>
-        <div id="judgeHtml">
-            <input type="button" value="右のカードの方が大きい" onclick="judge(true);"/>
-            <input type="button" value="右のカードの方が小さい" onclick="judge(false);"/>
+        <div id="judge-html">
+            <input class="button" type="button" value="右のカードの方が大きい" onclick="judge(true);"/>
+            <input class="button" type="button" value="右のカードの方が小さい" onclick="judge(false);"/>
         </div>
-        <div id="resultHtml"></div>
-        <div id="restartHtml">
-            <input type="button" value="次へ進む" onclick="restart();"/>
+        <div id="result-html"></div>
+        <div id="restart-html">
+            <input class="button" type="button" value="次へ進む" onclick="restart();"/>
         </div>
-        <div id="resultListHtml"></div>
+        <div id="result-list-html"></div>
     </div>
     <script src="script.js"></script>
 </body>

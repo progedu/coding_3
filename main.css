@@ -1,0 +1,19 @@
+
+
+/* プレイ画面の中央寄せをする。いろいろなやり方があるが今回はmarginを使った方法で行う。　*/
+.container {
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #005400;
+    color: #ffffff;
+}
+
+.button {
+    color: #000000;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+    padding: 5px 10px;
+}
