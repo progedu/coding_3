@@ -2,6 +2,7 @@ const left = document.getElementById("left");
 const right =  document.getElementById("right");
 const resultHtml =  document.getElementById("result-html");
 const judgeHtml = document.getElementById("judge-html");
+const restartHtml = document.getElementById("restart-html");
 
 let leftNum = 0;
 let rightNum = 0;
@@ -13,7 +14,6 @@ function start(){
 
     left.src = "card/0_" + leftNum + ".png"; // カードを描画
 
-    judgeHtml.style.display = "block"; //投票ボタンを表示
     restartHtml.style.display = "none"; //再戦ボタンを非表示
 }
 
