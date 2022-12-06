@@ -1,8 +1,8 @@
 const left = document.getElementById("left");
 const right =  document.getElementById("right");
 const resultHtml =  document.getElementById("result-html");
-const resultListHtml =  document.getElementById("result-list-html");
 const judgeHtml = document.getElementById("judge-html");
+const resultListHtml =  document.getElementById("result-list-html");
 const restartHtml = document.getElementById("restart-html");
 
 let leftNum = 0;
