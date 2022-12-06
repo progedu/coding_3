@@ -9,15 +9,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="lineup">
-           <img src=card/back.png id="left" />
-           <img src=card/back.png id="right" />
+        <div id="card-field">
+           <img class="card" src=card/back.png id="left" />
+           <img class="card" src=card/back.png id="right" />
         </div>
-        <div id="judge-html" class="lineup">
-            <input class="button" type="button" value="右のカードの方が大きい" onclick="judge(true);"/>
-            <input class="button" type="button" value="右のカードの方が小さい" onclick="judge(false);"/>
-        </div>
-        <div id="result-html"></div>
+        <div id="play-field">
+            <div id="judge-html">
+                <input class="button" type="button" value="右のカードの方が↑" onclick="judge(true);"/>
+                <input class="button" type="button" value="右のカードの方が↓" onclick="judge(false);"/>
+            </div>     
+            <div id="result-html">結果：0勝0敗</div>
         <div id="restart-html">
             <input class="button" type="button" value="次へ進む" onclick="restart();"/>
         </div>

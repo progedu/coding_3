@@ -1,19 +1,30 @@
 
-
-/* プレイ画面の中央寄せをする。いろいろなやり方があるが今回はmarginを使った方法で行う。　*/
 .container {
-    width: 500px;
+    width: 600px;
     padding: 20px 0;
     margin: 0 auto;
     background-color: #005400;
     color: #ffffff;
     border-radius: 5px;
     text-align: center;
+    display: flex;
 }
 
-.lineup {
-     display: flex;
+.card {
+    width: 100px;
+}
+
+#card-field {
+    width: 50%;
+    display: flex;
     justify-content: space-around;
+}
+
+#play-field {
+    width: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-content:flex-end;
 }
 
 .button {
