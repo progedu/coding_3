@@ -11,9 +11,10 @@ function start(){
     leftNum =  Math.floor(Math.random() * 13) + 1; //左のカード番号を決める
     rightNum =  Math.floor(Math.random() * 13) + 1; // 右のカード番号を決める
 
-    left.src = "card/0_" + leftNum + ".png"; // カードを描画
+    left.src = "card/1_" + leftNum + ".png"; // カードを描画
 
     restartHtml.style.display = "none"; //再戦ボタンを非表示
+    judgeHtml.style.display = "block"; //投票ボタンを表示
 }
 
 function judge(isHigh) {
@@ -34,7 +35,7 @@ function judge(isHigh) {
 
 function showResult(result){
     // 結果を表示
-    right.src = "card/1_" + rightNum + ".png"; // 右のカードを表示
+    right.src = "card/2_" + rightNum + ".png"; // 右のカードを表示
     if(result === true) {
         resultHtml.innerText = "あなたの勝ち！";
     }else{
