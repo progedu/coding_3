@@ -30,10 +30,6 @@ function judge(isHigh) {
         }
     }
 
-    showResult(result);
-}
-
-function showResult(result){
     // 結果を表示
     right.src = "card/2_" + rightNum + ".png"; // 右のカードを表示
     if(result === true) {
