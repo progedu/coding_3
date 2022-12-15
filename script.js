@@ -33,13 +33,6 @@ function judge(isHigh) {
         }
     }
 
-    showResult(result);
-
-    resultList.push(result);
-    showResultList(resultList);
-}
-
-function showResult(result){
     // 結果を表示
     right.src = "card/2_" + rightNum + ".png"; // 右のカードを表示
     if(result === true) {
@@ -47,12 +40,13 @@ function showResult(result){
     }else{
         resultHtml.innerText = "あなたの負け...";
     }
-    
+        
     judgeHtml.style.display = "none"; //投票ボタンを非表示
     restartHtml.style.display = "block"; //再戦ボタンを表示
-}
 
-function showResultList(resultList) {
+    // 今までの結果を表示
+    resultList.push(result);
+
     let win = 0;
     let lose = 0;
     for(let i = 0; i < resultList.length; i++) {
