@@ -1,44 +1,54 @@
-const left = document.getElementById("left");
-const right =  document.getElementById("right");
-const restartHtml = document.getElementById("restart-html");
-const resultHtml =  document.getElementById("result-html");
-const judgeHtml = document.getElementById("judge-html");
+let left = document.getElementById("left");
+let right = document.getElementById("right");
+let restartHtml = document.getElementById("restart-html");
+let resultHtml = document.getElementById("result-html");
+let judgeHtml = document.getElementById("judge-html");
+let resultListHtml = document.getElementById("result-list-html");
 
 let leftNum = 0;
 let rightNum = 0;
 
 function start(){
-    leftNum =  Math.floor(Math.random() * 13) + 1; //左のカード番号を決める
-    rightNum =  Math.floor(Math.random() * 13) + 1; // 右のカード番号を決める
+    leftNum =  Math.floor(Math.random() * 13) + 1;
+    rightNum =  Math.floor(Math.random() * 13) + 1;
 
-    left.src = "card/1_" + leftNum + ".png"; // カードを描画
+    left.src = "card/1_" + leftNum + ".png";
 
-    restartHtml.style.display = "none"; //再戦ボタンを非表示
-    judgeHtml.style.display = "block"; //投票ボタンを表示
+    restartHtml.style.display = "none";
+    judgeHtml.style.display = "block";
 }
 
 function judge(isHigh) {
-    let result = false; //デフォルトは負け
+    let result = "";
 
-    if (leftNum < rightNum) { // 右のカードの方が大きい
-        if (isHigh === true){ // isHighがtrueなら勝ち
-            result = true;
-        }
-    }else if(leftNum > rightNum){ // 右のカードの方が小さい
-        if (isHigh === false){ // isHighがfalseなら勝ち
+    if (leftNum > rightNum) {
+        if (isHigh === true) {
+            result = false;
+        } else {
             result = true;
         }
     }
+    if (leftNum < rightNum) {
+        if (isHigh === true) {
+            result = true;
+        } else {
+            result = false;
+        }
+    }
+    if (leftNum === rightNum) {
+        result = false;
+    }
 
-    // 結果を表示
-    right.src = "card/2_" + rightNum + ".png"; // 右のカードを表示
-    if(result === true) {
+    resultList.push(result);
+
+    right.src = "card/2_" + rightNum + ".png";
+    if (result === true) {
         resultHtml.innerText = "あなたの勝ち！";
-    }else{
-        resultHtml.innerText = "あなたの負け...";
+    } else {
+        resultHtml.innerText = "あなたの負け。。。";
     }
-    
-    judgeHtml.style.display = "none"; //投票ボタンを非表示
+
+    judgeHtml.style.display = "none";
 }
 
 window.onload = start();
