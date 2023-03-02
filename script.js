@@ -1,18 +1,21 @@
-const left = document.getElementById("left");
-const right =  document.getElementById("right");
-const restartHtml = document.getElementById("restart-html");
+let left = document.getElementById("left");
+let right = document.getElementById("right");
+let restartHtml = document.getElementById("restart-html");
+let resultHtml = document.getElementById("result-html");
+let judgeHtml = document.getElementById("judge-html");
+let resultListHtml = document.getElementById("result-list-html");
 
 let leftNum = 0;
 let rightNum = 0;
 
 function start(){
-    leftNum =  Math.floor(Math.random() * 13) + 1; //左のカード番号を決める
-    rightNum =  Math.floor(Math.random() * 13) + 1; // 右のカード番号を決める
+    leftNum =  Math.floor(Math.random() * 13) + 1;
+    rightNum =  Math.floor(Math.random() * 13) + 1;
 
-    left.src = "card/1_" + leftNum + ".png"; // カードを描画
+    left.src = "card/1_" + leftNum + ".png";
 
-    restartHtml.style.display = "none"; //再戦ボタンを非表示
-    judgeHtml.style.display = "block"; //投票ボタンを表示
+    restartHtml.style.display = "none";
+    judgeHtml.style.display = "block";
 }
 
 window.onload = start();
